@@ -25,7 +25,7 @@ $(function() {
      		  has_checked = true if checked
           
           v.images.each do |i| %>  
-              <li><%= link_to_image(i.attachment, product.name) %></li>
+              <li class="vtmb-<%= v.id.to_s %> vtmb" id="tmb-<%= i.id.to_s %>"><%= link_to_image(i.attachment, product.name) %></li>
           <% end %>
         <% end %>
       </ul>
