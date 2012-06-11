@@ -1,32 +1,19 @@
-<% if !product.images.empty? %>
-<script type="text/javascript">
-$(function() {
-  $('#product-images a').lightBox();
-});
-</script>
-<div id="gallery">
-  <ul>
-    <% is_first = true
-    product.images.each do |i|
-	    if is_first
-	      is_first = false
-	  	  next
-      end -%>
-    <li><%= link_to_image(i.attachment, product.name) %></li>
-    <% end -%>
+<!-- no need for thumnails unless there is more then one image -->
+<% if product.images.size > 1 %>
+  <ul id="product-thumbnails" class="thumbnails inline" data-hook>
+    <% product.master.images.each do |i| %>
+      <li class="tmb-all" id="tmb-<%= i.id.to_s %>"><%= link_to_image(i.attachment, product.name) %></li>
+    <% end %>
+
+    <% if @product.has_variants?
+      @variants.each do |v|
+        if v.available?
+          v.images.each do |i| %>
+            <li class="tmb-all vtmb vtmb-<%= v.id.to_s %>" id="tmb-<%= i.id.to_s %>"><%= link_to_image(i.attachment, v.name+' '+variant_options(v)) %></li>
+          <% end
+        end
+      end
+    end
+    %>
   </ul>
-  <% if @product.has_variants? 
-    has_checked = false %>
-    <ul id="variant-thumbnails" class="thumbnails">
-      <% (@variants || product.variants).each do |v|
-          checked = !has_checked && (v.available?)
-     		  has_checked = true if checked
-          
-          v.images.each do |i| %>  
-              <li class="vtmb-<%= v.id.to_s %> vtmb" id="tmb-<%= i.id.to_s %>"><%= link_to_image(i.attachment, product.name) %></li>
-          <% end %>
-        <% end %>
-      </ul>
-  <% end %>  
-</div>
 <% end %>

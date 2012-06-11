@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email             = 'gems@brylov.info'
   s.homepage          = 'https://github.com/pavelbrylov/spree-product-lightbox'
 
-  s.files        = Dir['README.md', 'lib/**/*', 'app/**/*', 'vendor/**/*']
+  s.files        = Dir['README.markdown', 'lib/**/*', 'app/**/*', 'vendor/**/*']
   s.require_path = 'lib'
   s.requirements << 'none'
   

@@ -1,15 +1,10 @@
 SUMMARY
 =======
 
-This extension creates a lightbox image gallery for product swatch images.
+This Spree extension creates a lightbox image gallery for product images.
 
 INSTALLATION
 ------------
 
-1. Clone the git repo to SPREE_ROOT/vendor/extensions/product_lightbox
-
-      git clone git://github.com/stephp/spree-product-lightbox.git product_lightbox
-
-Refer to [spree: ruby on rails ecommerce][1] to learn more about spree.
-
-[1]: http://spreecommerce.com/
+1. Add to your Gemfile
+gem 'spree-product-lightbox', :git => 'git://github.com/pavelbrylov/spree-product-lightbox'
