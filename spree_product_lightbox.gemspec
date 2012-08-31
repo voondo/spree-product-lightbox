@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.files        = Dir['README.md', 'lib/**/*', 'app/**/*', 'vendor/**/*']
   s.require_path = 'lib'
   s.requirements << 'none'
-  
+
   s.add_dependency('spree_core', '>= 0.1.0')
+  s.add_dependency('fancybox-rails', '>= 0.1.0')
 end

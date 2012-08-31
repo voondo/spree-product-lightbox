@@ -1,11 +1,11 @@
 <% if !product.images.empty? %>
 <script type="text/javascript">
 $(function() {
-  $('#product-images a').lightBox();
+  $('#product-images a').fancybox();
 });
 </script>
 <div id="gallery">
-  <ul>
+  <ul id="product-thumbnails" class="thumbnails inline" data-hook>
     <% is_first = true
     product.images.each do |i|
 	    if is_first
@@ -15,18 +15,18 @@ $(function() {
     <li><%= link_to_image(i.attachment, product.name) %></li>
     <% end -%>
   </ul>
-  <% if @product.has_variants? 
+  <% if false && @product.has_variants?
     has_checked = false %>
-    <ul id="variant-thumbnails" class="thumbnails">
+    <ul id="variant-thumbnails" class="thumbnails inline">
       <% (@variants || product.variants).each do |v|
           checked = !has_checked && (v.available?)
      		  has_checked = true if checked
-          
-          v.images.each do |i| %>  
+
+          v.images.each do |i| %>
               <li class="vtmb-<%= v.id.to_s %> vtmb" id="tmb-<%= i.id.to_s %>"><%= link_to_image(i.attachment, product.name) %></li>
           <% end %>
         <% end %>
       </ul>
-  <% end %>  
+  <% end %>
 </div>
 <% end %>

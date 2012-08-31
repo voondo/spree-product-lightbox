@@ -1,1 +1,1 @@
-//= require nf.lightbox
+//= require fancybox
