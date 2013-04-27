@@ -6,13 +6,13 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 1.8.7'
 
   s.author            = 'Different people around the world'
-  s.email             = 'gems@brylov.info'
-  s.homepage          = 'https://github.com/pavelbrylov/spree-product-lightbox'
+  s.email             = 'romain@quarkstudio.fr'
+  s.homepage          = 'https://github.com/voodno/spree-product-lightbox'
 
   s.files        = Dir['README.md', 'lib/**/*', 'app/**/*', 'vendor/**/*']
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency('spree_core', '>= 0.1.0')
-  s.add_dependency('fancybox-rails', '>= 0.1.0')
+  s.add_dependency('spree_core', '~> 1.3.0')
+  s.add_dependency('fancybox2-rails', '~> 0.2.4')
 end

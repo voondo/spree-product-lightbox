@@ -1,4 +1,4 @@
-<% if !product.images.empty? %>
+<% if !@product.images.empty? %>
 <script type="text/javascript">
 $(function() {
   $('#product-images a').fancybox();
@@ -7,18 +7,18 @@ $(function() {
 <div id="gallery">
   <ul id="product-thumbnails" class="thumbnails inline" data-hook>
     <% is_first = true
-    product.images.each do |i|
+    @product.images.each do |i|
 	    if is_first
 	      is_first = false
 	  	  next
       end -%>
-    <li><%= link_to_image(i.attachment, product.name) %></li>
+    <li><%= link_to_image(i.attachment, @product.name) %></li>
     <% end -%>
   </ul>
   <% if false && @product.has_variants?
     has_checked = false %>
     <ul id="variant-thumbnails" class="thumbnails inline">
-      <% (@variants || product.variants).each do |v|
+      <% (@variants || @product.variants).each do |v|
           checked = !has_checked && (v.available?)
      		  has_checked = true if checked
 
